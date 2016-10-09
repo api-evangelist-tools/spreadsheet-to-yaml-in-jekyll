@@ -75,10 +75,10 @@ title: Pull Spreadsheet
           $count++;
           if($count==$total_count)
             {
-            $products = JSON.stringify($products);
-            $products = JSON.stringify(JSON.parse($products),null,2);
+            $products_json = JSON.stringify($products);
+            $products_json = JSON.stringify(JSON.parse($products_json),null,2);
 
-            document.getElementById('source').value = $products;
+            document.getElementById('source').value = $products_json;
 
             $yaml_dump = jsyaml.dump($products);
 
