@@ -83,7 +83,7 @@
     <script type="text/javascript">
 
         // project view log
-  	   $url = "http://project.api.kinlane.com/project/view/";
+  	   $url = "https://project.api.kinlane.com/project/view/";
   	   $vlog = $.post($url, function() {});
 
         // List Sponsors
@@ -102,7 +102,7 @@
         // Feature Projects
         function featureProjects()
             {
-            $get_feature_project_url = "http://project.api.kinlane.com/project/feature/";
+            $get_feature_project_url = "https://project.api.kinlane.com/project/feature/";
           	$.ajax({
           	  url: $get_feature_project_url,
           	  type:"GET",
@@ -121,7 +121,7 @@
         // Footer Projects
         function footerProjects()
             {
-            $get_footer_project_url = "http://project.api.kinlane.com/project/footer/";
+            $get_footer_project_url = "https://project.api.kinlane.com/project/footer/";
 
             $.ajax({
               url: $get_footer_project_url,
