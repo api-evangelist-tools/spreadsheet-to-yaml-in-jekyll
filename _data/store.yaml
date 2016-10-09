@@ -1,0 +1,20 @@
+- id: XYJ123
+  name: Product One
+  description: This is the description for product one.
+  price: '19.99'
+- id: XYJ234
+  name: Product Two
+  description: This is the description for product two.
+  price: '19.99'
+- id: XYJ456
+  name: Product Three
+  description: This is the description for product three.
+  price: '19.99'
+- id: XYJ789
+  name: Product Four
+  description: This is the description for product four.
+  price: '19.99'
+- id: XYH123
+  name: Product Five
+  description: This is the description for product five.
+  price: '19.98'

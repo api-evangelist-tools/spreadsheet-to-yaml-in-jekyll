@@ -1,0 +1,54 @@
+---
+layout: page
+title: Pull Spreadsheet
+---
+
+
+<h1>Google Spreadsheet To YAML in Jekyll</h1>
+<p>This is a basic tool that pulls from a Google Spreadsheet, and publish into a Github repository as a YAML to drive some of the Jekyll driven content here.</p>
+<p>Here is the <a href="https://docs.google.com/spreadsheets/d/14OsbrDkjnr67J2TMzYO0EiFrixdYbf-UiMJ-HYNJhMI/pubhtml" target="_blank">spreadsheet</a> I am using.</p>
+
+<script type="text/javascript">
+
+      key = "14OsbrDkjnr67J2TMzYO0EiFrixdYbf-UiMJ-HYNJhMI";
+
+      $(document).ready( function() {
+        Tabletop.init( { key: key,
+                         callback: showInfo,
+                         wanted: [ "Services" ],
+                         debug: true } )
+      })
+
+      function showInfo(data, tabletop) {
+        $("#table_info").text("We found the tables " + tabletop.model_names.join(", "));
+
+        $.each( tabletop.sheets(), function(i, sheet) {
+          $("#table_info").append("<p>" + sheet.name + " has " + sheet.column_names.join(", ") + "</p>");
+        });
+
+        $.each( tabletop.sheets("Products").all(), function(i, service) {
+
+            $id = service['ID'];
+            $title = service['Title'];
+            $description = service['Description'];
+            $price = service['Price'];
+
+            $products = {};
+            $products['id'] = $id;
+            $products['title'] = $title;
+            $products['description'] = $description;
+            $products['price'] = $price;
+
+            $products = JSON.stringify($products);
+            $products = JSON.stringify(JSON.parse($products),null,2);
+
+            document.getElementById('source').value = $products;
+            //beautify(jsonStr);
+        })
+
+      }
+
+     }
+</script>
+
+<textarea cols="40" rows="5" id="source" style="border: 1px solid #000; width: 100%; height: 750px;"></textarea>

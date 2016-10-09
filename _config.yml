@@ -1,0 +1,29 @@
+title:        My Github YAML Editor Micro Tool Base
+description:  This is base for my Github micro tooling
+url:          http://github-micro-tool.apievangelist.com
+
+version:      1.1.1
+
+author:
+  name:       'Kin Lane'
+  email:      'info@apievangelist.com'
+markdown:     kramdown
+permalink:    pretty
+pygments:     true
+highlighter:  rouge
+
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md",".DS_Store"]
+
+github_user: kinlane
+github_repo: github-micro-tool-yaml
+
+production_url : http://github-micro-tool.apievangelist.com
+
+image : http://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png
+imagesecure : https://s3.amazonaws.com/kinlane-productions/api-evangelist/t-shirts/KL_InApiWeTrust-1000.png
+
+# Footer
+footer_title: API Evangelist
+footer_link: http://apievangelist.com
+footer_image_source: https://s3.amazonaws.com/kinlane-productions/footer/empowered-by-you-banner.png
+footer_image_width: 60
