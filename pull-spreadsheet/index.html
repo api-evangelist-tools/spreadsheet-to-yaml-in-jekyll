@@ -55,6 +55,8 @@ title: Pull Spreadsheet
 
       $.each( tabletop.sheets("Products").all(), function(i, service) {
 
+        console.log(service);
+
           $id = service['ID'];
           $title = service['Title'];
           $description = service['Description'];
