@@ -34,46 +34,46 @@ title: Pull Spreadsheet
     // Grab the token from cookie
     $oAuthToken = Cookies.get('token');
 
-      key = "14OsbrDkjnr67J2TMzYO0EiFrixdYbf-UiMJ-HYNJhMI";
+    key = "14OsbrDkjnr67J2TMzYO0EiFrixdYbf-UiMJ-HYNJhMI";
 
-      $(document).ready( function() {
-        Tabletop.init( { key: key,
-                         callback: showInfo,
-                         wanted: [ "Services" ],
-                         debug: true } )
+    $(document).ready( function() {
+      Tabletop.init( { key: key,
+                       callback: showInfo,
+                       wanted: [ "Services" ],
+                       debug: true } )
+    })
+
+    function showInfo(data, tabletop) {
+      $("#table_info").text("We found the tables " + tabletop.model_names.join(", "));
+
+      $.each( tabletop.sheets(), function(i, sheet) {
+        $("#table_info").append("<p>" + sheet.name + " has " + sheet.column_names.join(", ") + "</p>");
+      });
+
+      $product = tabletop.sheets("Products").all();
+      console.log("count: " + $product.length());
+
+      $.each( tabletop.sheets("Products").all(), function(i, service) {
+
+          $id = service['ID'];
+          $title = service['Title'];
+          $description = service['Description'];
+          $price = service['Price'];
+
+          $products = {};
+          $products['id'] = $id;
+          $products['title'] = $title;
+          $products['description'] = $description;
+          $products['price'] = $price;
+
+          $products = JSON.stringify($products);
+          $products = JSON.stringify(JSON.parse($products),null,2);
+
+          document.getElementById('source').value = $products;
+          //beautify(jsonStr);
       })
 
-      function showInfo(data, tabletop) {
-        $("#table_info").text("We found the tables " + tabletop.model_names.join(", "));
-
-        $.each( tabletop.sheets(), function(i, sheet) {
-          $("#table_info").append("<p>" + sheet.name + " has " + sheet.column_names.join(", ") + "</p>");
-        });
-
-        $product = tabletop.sheets("Products").all();
-        console.log("count: " + $product.length());
-
-        $.each( tabletop.sheets("Products").all(), function(i, service) {
-
-            $id = service['ID'];
-            $title = service['Title'];
-            $description = service['Description'];
-            $price = service['Price'];
-
-            $products = {};
-            $products['id'] = $id;
-            $products['title'] = $title;
-            $products['description'] = $description;
-            $products['price'] = $price;
-
-            $products = JSON.stringify($products);
-            $products = JSON.stringify(JSON.parse($products),null,2);
-
-            document.getElementById('source').value = $products;
-            //beautify(jsonStr);
-        })
-
-      }
+    }
 
 </script>
 
