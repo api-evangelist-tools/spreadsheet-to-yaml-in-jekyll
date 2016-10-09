@@ -44,6 +44,9 @@ title: Pull Spreadsheet
     })
 
     function showInfo(data, tabletop) {
+
+      $products = {};
+
       $("#table_info").text("We found the tables " + tabletop.model_names.join(", "));
 
       $.each( tabletop.sheets(), function(i, sheet) {
@@ -52,28 +55,31 @@ title: Pull Spreadsheet
 
       $product = tabletop.sheets("Products").all();
 
-      console.log("count: " + $product.length);
-
+      $count = 0;
+      $total_count = $product.length;
       $.each( tabletop.sheets("Products").all(), function(i, service) {
-
-        console.log(service);
 
           $id = service['ID'];
           $title = service['Title'];
           $description = service['Description'];
           $price = service['Price'];
 
-          $products = {};
-          $products['id'] = $id;
-          $products['title'] = $title;
-          $products['description'] = $description;
-          $products['price'] = $price;
-
-          $products = JSON.stringify($products);
-          $products = JSON.stringify(JSON.parse($products),null,2);
-
-          document.getElementById('source').value = $products;
+          $p = {};
+          $p['id'] = $id;
+          $p['title'] = $title;
+          $p['description'] = $description;
+          $p['price'] = $price;
+          $products.push($p);
           //beautify(jsonStr);
+
+          $count++;
+          if($count==$total_count)
+            {
+            $products = JSON.stringify($products);
+            $products = JSON.stringify(JSON.parse($products),null,2);
+
+            document.getElementById('source').value = $products;
+            }
       })
 
     }
