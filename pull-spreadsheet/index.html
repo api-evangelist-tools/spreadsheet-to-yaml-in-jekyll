@@ -10,6 +10,30 @@ title: Pull Spreadsheet
 
 <script type="text/javascript">
 
+    // Reset the cookie manually
+    //Cookies.expire('token');
+
+    var $oAuthToken = getUrlVar('token');
+    var $yaml_store = "";
+
+    // When you fork, make sure ad add your org / user and repo name to _config.yml
+    var $org = '{{ site.github_user }}';
+    var $repo = '{{ site.github_repo }}';
+
+    if($oAuthToken !='')
+      {
+
+      // Setting a cookie value
+      Cookies.set('token', $oAuthToken);
+
+      // Set with expiration
+      // Cookies.set('token', $oAuthToken, { expires: '01/01/2017' });
+
+      }
+
+    // Grab the token from cookie
+    $oAuthToken = Cookies.get('token');
+
       key = "14OsbrDkjnr67J2TMzYO0EiFrixdYbf-UiMJ-HYNJhMI";
 
       $(document).ready( function() {
@@ -25,6 +49,9 @@ title: Pull Spreadsheet
         $.each( tabletop.sheets(), function(i, sheet) {
           $("#table_info").append("<p>" + sheet.name + " has " + sheet.column_names.join(", ") + "</p>");
         });
+
+        $product = tabletop.sheets("Products").all();
+        console.log($product.length());
 
         $.each( tabletop.sheets("Products").all(), function(i, service) {
 
