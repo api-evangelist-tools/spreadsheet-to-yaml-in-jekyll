@@ -5,9 +5,9 @@ title: Pull Spreadsheet
 
 
 <h1>Google Spreadsheet To YAML in Jekyll</h1>
-<p>This is a basic tool that pulls from a Google Spreadsheet, and publish into a Github repository as a YAML to drive some of the Jekyll driven content here.</p>
-<p>Here is the <a href="https://docs.google.com/spreadsheets/d/14OsbrDkjnr67J2TMzYO0EiFrixdYbf-UiMJ-HYNJhMI/pubhtml" target="_blank">spreadsheet</a> I am using.</p>
-<p>For this to work you have to pass in ?token=[<a href="https://github.com/settings/tokens">personal access token</a>], from an account that has access to this repository.
+<p>This is a basic tool that pulls from a <a href="https://docs.google.com/spreadsheets/d/14OsbrDkjnr67J2TMzYO0EiFrixdYbf-UiMJ-HYNJhMI/pubhtml" target="_blank">Google Spreadsheet template<a>, and publish into a Github repository as a YAML to drive some of the Jekyll driven content here on this website.</p>
+<p>For this to work you have to pass in ?token=[<a href="https://github.com/settings/tokens">personal access token</a>], from an account that has access to this repository.</p>
+<p>This is just a base component I will use in other micro tools to achieve this basic functionality for allowing YAML driven jekyll sites to be managed by a Google spreadsheet.</p>
 
 <script type="text/javascript">
 
@@ -101,7 +101,7 @@ title: Pull Spreadsheet
                   {
                   repo.writemanual('gh-pages',$writepath, $yaml_dump, 'Save', $sha, function(err) { });
                   //console.log("writing " + $writepath);
-                  alert("saved " + $writepath);
+                  //alert("saved " + $writepath);
                   }
                 });
               });
