@@ -1,27 +1,16 @@
-|-
-  [
-    {
-      "id": "XYJ123",
-      "title": "Title One",
-      "description": "This is the description for product one.",
-      "price": "10.99"
-    },
-    {
-      "id": "XYJ234",
-      "title": "Title Two",
-      "description": "This is the description for product two.",
-      "price": "12.99"
-    },
-    {
-      "id": "XYJ567",
-      "title": "Title Three",
-      "description": "This is the description for product three.",
-      "price": "15.99"
-    },
-    {
-      "id": "XYJ8910",
-      "title": "Title Four",
-      "description": "This is the description for product four.",
-      "price": "4.99"
-    }
-  ]
+- id: XYJ123
+  title: Title One
+  description: This is the description for product one.
+  price: '10.99'
+- id: XYJ234
+  title: Title Two
+  description: This is the description for product two.
+  price: '12.99'
+- id: XYJ567
+  title: Title Three
+  description: This is the description for product three.
+  price: '15.99'
+- id: XYJ8910
+  title: Title Four
+  description: This is the description for product four.
+  price: '4.99'
